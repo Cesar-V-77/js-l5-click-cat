@@ -3,8 +3,17 @@ var button = document.querySelector(".show-cat");
 var cat = document.querySelector(".cat");
 // console.log(cat.outerHTML);
 
-//Clicking on the button reveals a cat image, by adding the ".cat" class with an opacity style of 1.
+//Clicking on the button toggles the cat image and descriptive text
 button.addEventListener("click", function () {
-  button.innerText = "Meow!";
-  cat.classList.add("show");
+  if (cat.classList.contains("show")) {
+    // console.log("Yes, the cat is shown.");
+    cat.classList.remove("show");
+    button.innerText = "Wait, come back!";
+    button.classList.add("disappear");
+  } else {
+    // console.log("No, the cat is hidden.");
+    cat.classList.add("show");
+    button.innerText = "Shoo, cat!";
+    button.classList.remove("disappear");
+  }
 });
